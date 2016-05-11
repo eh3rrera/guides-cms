@@ -19,6 +19,11 @@ from .file import read_file
 from .file import read_redirects
 from .file import update_article_listing
 
+from .heart import add_heart
+from .heart import remove_heart
+from .heart import count_hearts
+from .heart import has_hearted
+
 from .user import find_user
 
 from .email_list import add_subscriber

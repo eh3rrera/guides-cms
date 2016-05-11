@@ -435,8 +435,13 @@ def render_article_view(request_obj, article, only_visible_by_user=None):
     # 'discussion' for every article and there's no way to delete them!
     allow_comments = not app.debug
 
+    hearted = False
+    if login is not None:
+        hearted = models.has_hearted(article.stacks[0], article.title, login)
+
     return render_template('article.html',
                            article=article,
+                           hearted=hearted,
                            allow_delete=allow_delete,
                            canonical_url=canonical_url,
                            article_identifier=article_identifier,
